@@ -259,7 +259,7 @@ class HalamanKedua extends StatelessWidget{
                                   
                   child: new MaterialButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => dashboardUser() ));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => dashboardAdmin() ));
                     },child: Text('Masuk',
                       style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20 ),),
                     color: Colors.red,
