@@ -2,6 +2,7 @@
 
 import 'package:request_app/dashboardUser.dart';
 import 'package:request_app/screen/admin/dashboradAdmin.dart';
+import 'package:request_app/screen/Detail.dart';
 import 'package:request_app/splashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -114,7 +115,7 @@ class HalamanKedua extends StatelessWidget{
                                   
                   child: new MaterialButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => dashboardAdmin() ));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Detail() ));
                     },child: Text('Masuk',
                       style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20 ),),
                     color: Colors.red,
