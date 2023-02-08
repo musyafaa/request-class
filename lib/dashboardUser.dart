@@ -9,11 +9,12 @@ class dashboardUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Request Penggunaan  Kelas', style: TextStyle(color: Colors.black)), backgroundColor: Colors.white,),
       body: Center(
           child: Column(
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 20),
           Container(
               width: 370,
               height: 150,
@@ -460,6 +461,11 @@ class dashboardUser extends StatelessWidget {
               )),
         ],
       )),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add, color: Colors.white,),
+          backgroundColor: Colors.red,
+          ),
     ));
   }
 }
