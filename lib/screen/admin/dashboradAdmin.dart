@@ -1,13 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:request_app/model/drobdown.dart';
 
 void main() {
-  runApp(const dashboardAdmin());
+  runApp(const DashboardAdmin());
 }
 
-class dashboardAdmin extends StatelessWidget {
-  const dashboardAdmin({Key? key}) : super(key: key);
+class DashboardAdmin extends StatelessWidget {
+  const DashboardAdmin({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,4 +19,3 @@ class dashboardAdmin extends StatelessWidget {
     );
   }
 }
-

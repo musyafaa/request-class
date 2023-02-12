@@ -1,16 +1,14 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
 
 class Drobdown extends StatefulWidget {
   const Drobdown({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<Drobdown> {
-
 // Initial Selected Value
   String dropdownvalue = 'Item 1';
 
@@ -30,41 +28,39 @@ class _MyHomePageState extends State<Drobdown> {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
                   './assets/images/logo-telkom.png',
                   height: 40,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 18),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 18),
+                  child: const Text(
                     "Request Penggunaan Kelas",
                     style: TextStyle(color: Colors.black),
                     textAlign: TextAlign.start,
                   ),
                 ),
               ])),
-      body: new Center(
+      body: Center(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(),
-
+              padding: const EdgeInsets.symmetric(),
               child: Column(
                 children: <Widget>[
                   Container(
                     width: 140,
                     height: 30,
                     // padding: EdgeInsets.all(16.0),
-                    margin: EdgeInsets.only(top: 20, right: 200),
+                    margin: const EdgeInsets.only(top: 20, right: 200),
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: const Color(0xFF000000),
                           width: 0,
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(50),
-
                     ),
                     child: DropdownButton(
                       style: Theme.of(context).textTheme.bodyMedium,
@@ -79,10 +75,11 @@ class _MyHomePageState extends State<Drobdown> {
                         return DropdownMenuItem(
                             value: items,
                             child: Container(
-                                padding: EdgeInsets.only(left: 48),
-                                child: Text(items, textAlign: TextAlign.center,)
-                            )
-                        );
+                                padding: const EdgeInsets.only(left: 48),
+                                child: Text(
+                                  items,
+                                  textAlign: TextAlign.center,
+                                )));
                       }).toList(),
                       // After selecting the desired option,it will
                       // change button value to selected value
@@ -93,7 +90,6 @@ class _MyHomePageState extends State<Drobdown> {
                       },
                     ),
                   )
-
                 ],
               ),
             )
