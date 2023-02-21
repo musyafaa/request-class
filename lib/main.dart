@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_new
 
 import 'package:request_app/dashboardUser.dart';
+import 'package:request_app/Alert.dart';
+import 'package:request_app/snackBar.dart';
+import 'package:request_app/screen/Admin/dashboardAdmin.dart';
+import 'package:request_app/screen/Admin/dashboardAdmin.dart';
 import 'package:request_app/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'HalamanKetiga.dart';
@@ -12,7 +16,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp( title: 'class in flutter',
@@ -92,7 +96,7 @@ class HalamanHome extends StatelessWidget{
               Image.asset('assets/images/pic3.JPG',
               height: 200,
               width: 100,),
-            
+
             ],
           ),
           Row(
@@ -131,52 +135,52 @@ class HalamanPertama extends StatelessWidget{
       ),
       body: new ListView(
         children: <Widget>[
-          new ListTile(   
-            title: Text('1. Muhammad Bintang'),            
-          ),  
+          new ListTile(
+            title: Text('1. Muhammad Bintang'),
+          ),
           new ListTile(
             title: Text('2. Muhammad Fakhry Huzan'),
-          ),  
+          ),
           new ListTile(
             title: Text('3. Muhammad Faris Hilmy'),
-          ),  
+          ),
           new ListTile(
             title: Text('4. Muhammad Fauzil Adim'),
-          ),  
+          ),
           new ListTile(
             title: Text('5. Muhammad haris Al-Fikri'),
-          ),  
+          ),
           new ListTile(
             title: Text('6. Muhammad Musyafa Fadila'),
-          ),  
+          ),
           new ListTile(
             title: Text('7. Muhammad Rifki Fadhilah'),
-          ),  
+          ),
           new ListTile(
             title: Text('8. Muhammad Rizky Sendiko'),
-          ),  
+          ),
           new ListTile(
             title: Text('9. Muhammad Rizqi Gunan'),
-          ),  
+          ),
           new ListTile(
             title: Text('10. Muhammad Rusdiyanto'),
-          ),  
+          ),
           new ListTile(
             title: Text('11. Mutia Rani Zahra Meilani <3'),
-          ),    
+          ),
         ],
       ),
-      
+
     );
   }
 }
 
 class HalamanKedua extends StatelessWidget{
-  
+
   final TextEditingController myController = TextEditingController();
 
   HalamanKedua({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,7 +200,7 @@ class HalamanKedua extends StatelessWidget{
                 children: <Widget>[
                 Text('Request Class',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28 ),),
-                Center(),                               
+                Center(),
                 ],
               ),
             ),
@@ -216,15 +220,15 @@ class HalamanKedua extends StatelessWidget{
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                
+
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   child: TextField(
                     textAlign: TextAlign.start,
                         textAlignVertical: TextAlignVertical.center,
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(                           
-                            
+                          border: OutlineInputBorder(
+
                           ),
                           hintText: "Kelas",
                           labelText: "Kelas",
@@ -234,48 +238,48 @@ class HalamanKedua extends StatelessWidget{
                 ),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16), 
-                  
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+
                   child: TextField(
                       textAlign: TextAlign.start,
                       textAlignVertical: TextAlignVertical.center,
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                         
+
                         ),
                         hintText: "Password",
                         labelText: "Password",
                         prefixIcon: Icon(Icons.lock),
-                         
-                         
+
+
                       ),
-              
+
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 100), 
-                                  
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 100),
+
                   child: new MaterialButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => dashboardUser() ));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => dashboardAdmin() ));
                     },child: Text('Masuk',
                       style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20 ),),
                     color: Colors.red,
                     textColor: Colors.white,
                     height: 50,
-                    minWidth: 300,  
+                    minWidth: 300,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
-                      ),                  
+                      ),
                   ),
                 ),
-                
+
               ],
-            ),    
+            ),
            // akhir form untuk login
           ],
-        )     
+        )
       ),
     );
   }
