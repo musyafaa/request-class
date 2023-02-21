@@ -1,14 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_new
 
+<<<<<<< HEAD
 import 'package:request_app/dashboardUser.dart';
 import 'package:request_app/Alert.dart';
 import 'package:request_app/snackBar.dart';
 import 'package:request_app/screen/Admin/dashboardAdmin.dart';
 import 'package:request_app/screen/Admin/dashboardAdmin.dart';
 import 'package:request_app/splashScreen.dart';
+=======
+import 'package:get/get.dart';
+import 'package:request_app/splashscreen/splashScreen.dart';
+>>>>>>> 60596e408a98e4254943c1515c5b61501b2073a2
 import 'package:flutter/material.dart';
-import 'HalamanKetiga.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return MaterialApp( title: 'class in flutter',
     theme: ThemeData(
       primarySwatch: Colors.red,
@@ -281,6 +285,16 @@ class HalamanKedua extends StatelessWidget{
           ],
         )
       ),
+=======
+    return GetMaterialApp(
+      title: 'class in flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+>>>>>>> 60596e408a98e4254943c1515c5b61501b2073a2
     );
   }
 }
