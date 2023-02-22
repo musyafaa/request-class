@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:request_app/components/constant/constant.dart';
+import 'package:request_app/screen/admin/detailAdmin.dart';
 
 class AdminAcc extends StatelessWidget {
   const AdminAcc({super.key});
@@ -27,16 +29,18 @@ class AdminAcc extends StatelessWidget {
                   ),
                 ),
               ])),
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: [
-          const SizedBox(height: 20),
-          ListView.builder(
-              shrinkWrap: true,
-              itemCount: 8,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: ((context, index) {
-                return Container(
+      body: ListView(physics: const BouncingScrollPhysics(), children: [
+        const SizedBox(height: 20),
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: 8,
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: ((context, index) {
+              return GestureDetector(
+                  onTap: () {
+                    Get.to(() => const DetailAdmin());
+                  },
+                  child: Container(
                     width: 370,
                     height: 150,
                     padding: const EdgeInsets.all(20),
@@ -55,16 +59,26 @@ class AdminAcc extends StatelessWidget {
                             blurRadius: 1,
                           ),
                         ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(
                       children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/images/person.png'),
-                            Column(
-                              children: [
-                                Row(
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('assets/images/person.png')),
+                        Expanded(
+                          flex: 4,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
+                                    // const SizedBox(
+                                    //   width: 5,
+                                    // ),
                                     Column(
                                       children: const [
                                         Text(
@@ -83,6 +97,7 @@ class AdminAcc extends StatelessWidget {
                                         )
                                       ],
                                     ),
+
                                     Column(
                                       children: const [
                                         Text(
@@ -103,19 +118,24 @@ class AdminAcc extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                const Text(
-                                  '    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(196, 196, 196, 1)),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 12),
+                                child: Text(
+                                  ' _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  ',
+                                  style: TextStyle(color: kPrimaryColor),
                                 ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                Row(
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
                                     Column(
                                       children: const [
                                         Text(
@@ -135,9 +155,6 @@ class AdminAcc extends StatelessWidget {
                                               fontWeight: FontWeight.w700),
                                         )
                                       ],
-                                    ),
-                                    const SizedBox(
-                                      width: 60,
                                     ),
                                     Column(
                                       children: const [
@@ -160,16 +177,16 @@ class AdminAcc extends StatelessWidget {
                                       ],
                                     ),
                                   ],
-                                )
-                              ],
-                            ),
-                          ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ],
-                    ));
-              }))
-        ],
-      ),
+                    ),
+                  ));
+            }))
+      ]),
     );
   }
 }

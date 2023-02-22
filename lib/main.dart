@@ -12,8 +12,18 @@ import 'package:get/get.dart';
 import 'package:request_app/splashscreen/splashScreen.dart';
 >>>>>>> 60596e408a98e4254943c1515c5b61501b2073a2
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+
+void main() async {
+  
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -294,7 +304,11 @@ class HalamanKedua extends StatelessWidget{
       ),
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
 >>>>>>> 60596e408a98e4254943c1515c5b61501b2073a2
+=======
+      defaultTransition: Transition.cupertino,
+>>>>>>> aa52425eed7ddc7a72e52bf16c4c04c94565b183
     );
   }
 }
