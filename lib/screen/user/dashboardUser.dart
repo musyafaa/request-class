@@ -107,11 +107,11 @@ class _dashboardUserState extends State<dashboardUser> {
                   child: CircularProgressIndicator(),
                 );
               }
-              if (snap.data == null) {
-                return const SizedBox(
-                  height: 150,
-                  child: Center(
-                    child: Text("Belum ada history presensi."),
+              if (snap.data!.docs.isEmpty) {
+                return SizedBox(
+                  height: Get.height / 1.5,
+                  child: const Center(
+                    child: Text("Belum ada data pemesanan"),
                   ),
                 );
               }
@@ -129,11 +129,14 @@ class _dashboardUserState extends State<dashboardUser> {
                               date: data['date'],
                               pemesan: data['name'],
                               kelaspemesan: data['pemesan'],
+                              jurusan: data['jurusan'] ?? "",
+                              mulai: data['mulai'],
+                              selesai: data['selesai'],
                             ));
                       },
                       child: Container(
                           width: 370,
-                          height: 150,
+                          height: 170,
                           padding: const EdgeInsets.all(20),
                           margin: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -187,7 +190,7 @@ class _dashboardUserState extends State<dashboardUser> {
                                 children: [
                                   const Text('Tanggal Pemesanan: '),
                                   Text(
-                                    data['date'],
+                                    data['date'] ?? "",
                                     // '20/10/2022',
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold),
@@ -199,7 +202,7 @@ class _dashboardUserState extends State<dashboardUser> {
                                 children: [
                                   const Text('Pemesan: '),
                                   Text(
-                                    data['name'],
+                                    data['name'] ?? "",
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -210,7 +213,18 @@ class _dashboardUserState extends State<dashboardUser> {
                                 children: [
                                   const Text('Kelas: '),
                                   Text(
-                                    data['pemesan'],
+                                    data['pemesan'] ?? "",
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  const Text('Jurusan: '),
+                                  Text(
+                                    data['jurusan'] ?? "data tidak ditemukan",
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -240,7 +254,7 @@ class _dashboardUserState extends State<dashboardUser> {
                                         width: 14,
                                       ),
                                       Text(
-                                        data['status'],
+                                        data['status'] ?? "",
                                         style: data['status'] == 'Submit'
                                             ? styleStatus(
                                                 colortext: const Color.fromRGBO(

@@ -16,4 +16,5 @@ class Preference {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.remove("user");
   }
+
 }

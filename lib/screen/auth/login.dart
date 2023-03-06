@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:request_app/api/prefence_handler.dart';
+import 'package:request_app/screen/admin/adminAcc.dart';
 import 'package:request_app/screen/auth/controllerLogin.dart';
 import 'package:request_app/screen/user/dashboardUser.dart';
 
@@ -102,13 +103,19 @@ class LoginPage extends StatelessWidget {
                           passwordController.text == "1sampai6") {
                         Preference.storingUser(usernameController.text).then(
                             (value) => Get.to(() => const dashboardUser()));
+                      } else if (usernameController.text == "Admin" &&
+                          passwordController.text == "AdminClass") {
+                        Preference.storingUser(usernameController.text)
+                            .then((value) => Get.to(() => const AdminAcc()));
                       } else {
                         Get.snackbar("username", "username tidak terdaftar",
                             snackStyle: SnackStyle.FLOATING);
                       }
                     } else {
-                      Get.snackbar("username",
-                          "username atau password tidak boleh kosong");
+                      Get.snackbar(
+                        "username",
+                        "username atau password tidak boleh kosong",
+                      );
                     }
                   },
                   color: Colors.red,

@@ -25,6 +25,7 @@ class _AddPesanan extends State<AddPesanan> {
   final TextEditingController mulaiController = TextEditingController();
   final TextEditingController selesaiController = TextEditingController();
   final TextEditingController dipesanController = TextEditingController();
+  final TextEditingController jurusanController = TextEditingController();
 
   @override
   void initState() {
@@ -172,6 +173,19 @@ class _AddPesanan extends State<AddPesanan> {
               ),
             ),
             Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: TextField(
+                controller: jurusanController,
+                textAlign: TextAlign.start,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Jurusan",
+                  labelText: "Jurusan Siswa",
+                ),
+              ),
+            ),
+            Padding(
                 padding: const EdgeInsets.fromLTRB(100, 40, 100, 0),
                 child: ElevatedButton(
                   onPressed: () async {
@@ -192,6 +206,7 @@ class _AddPesanan extends State<AddPesanan> {
                       "mulai": mulaiController.text,
                       "selesai": selesaiController.text,
                       "dipesan": dipesanController.text,
+                      "jurusan": jurusanController.text,
                       "status": "Submit",
                       "createdAt": DateTime.now().toIso8601String(),
                     }).then((value) => Get.back());
